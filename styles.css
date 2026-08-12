@@ -1,0 +1,271 @@
+:root {
+  --bg: #090909;
+  --paper: #f1e5cf;
+  --sand: #c49a56;
+  --gold: #b8832e;
+  --olive: #7b7d46;
+  --text: #f6f2ea;
+  --muted: #bdb5aa;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  background: var(--bg);
+}
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.section {
+  min-height: 100svh;
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+}
+.hero {
+  overflow: hidden;
+  align-items: end;
+  justify-items: start;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url("assets/areia.png") center/cover no-repeat;
+  transform: scale(1.03);
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.38) 48%,
+      rgba(0, 0, 0, 0.18) 100%
+    ),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.52) 0%, transparent 55%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(780px, 92vw);
+  padding: 0 3vw 10vh;
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--sand);
+  margin: 0 0 18px;
+}
+h1,
+h2 {
+  font-family: Oswald, Inter, sans-serif;
+  text-transform: uppercase;
+  line-height: 0.94;
+  margin: 0;
+  letter-spacing: -0.03em;
+}
+h1 {
+  font-size: clamp(3.5rem, 10vw, 8.3rem);
+  max-width: 8.2ch;
+  text-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
+}
+h1 span {
+  color: var(--sand);
+}
+.sub {
+  font-family: Oswald, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 1.05rem;
+  margin: 24px 0;
+  color: var(--paper);
+}
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  padding: 15px 20px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: rgba(10, 10, 10, 0.22);
+  backdrop-filter: blur(8px);
+  transition: 0.25s;
+}
+.cta:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.1);
+}
+.scroll-hint {
+  position: absolute;
+  z-index: 3;
+  right: 32px;
+  bottom: 28px;
+  background: transparent;
+  border: 0;
+  color: white;
+  display: grid;
+  gap: 6px;
+  cursor: pointer;
+  opacity: 0.72;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.64rem;
+}
+.arrow {
+  font-size: 1.5rem;
+  animation: bob 1.5s infinite;
+}
+@keyframes bob {
+  50% {
+    transform: translateY(6px);
+  }
+}
+.clue {
+  background: radial-gradient(
+    circle at 30% 20%,
+    #2b2117 0,
+    #0a0a0a 48%,
+    #050505 100%
+  );
+}
+.clue-card {
+  width: min(1120px, 94vw);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  background: #0f0f0f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.5);
+}
+.clue-image {
+  min-height: 560px;
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.05)),
+    url("assets/hero1.png") 51.5% center/cover no-repeat;
+  filter: saturate(0.75) contrast(1.05);
+}
+.clue-copy {
+  padding: clamp(34px, 6vw, 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.clue-copy h2,
+.finale h2 {
+  font-size: clamp(2.8rem, 6vw, 6rem);
+}
+.clue-copy p:last-child,
+.final-text {
+  color: var(--muted);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.65;
+  max-width: 42ch;
+}
+.finale {
+  background: linear-gradient(180deg, #070707, #11100c 70%, #090909);
+  text-align: center;
+  padding-bottom: 80px;
+}
+.finale-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+}
+.logo {
+  width: min(210px, 44vw);
+  border-radius: 20%;
+  height: auto;
+  margin-bottom: 28px;
+  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.6));
+}
+.finale h2 span {
+  color: var(--sand);
+}
+.final-text {
+  margin: 26px auto 30px;
+}
+.cta-solid {
+  background: var(--paper);
+  color: #101010;
+  border-color: var(--paper);
+}
+.cta-solid:hover {
+  background: white;
+}
+footer {
+  position: absolute;
+  bottom: 20px;
+  font-size: 0.78rem;
+  color: #7f786f;
+  letter-spacing: 0.08em;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+@media (max-width: 760px) {
+  .hero {
+    align-items: end;
+  }
+  .hero-content {
+    padding: 0 2vw 12vh;
+  }
+  .overlay {
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.72),
+      rgba(0, 0, 0, 0.24) 65%
+    );
+  }
+  .scroll-hint {
+    right: 18px;
+    bottom: 18px;
+  }
+  .clue-card {
+    grid-template-columns: 1fr;
+  }
+  .clue-image {
+    min-height: 44svh;
+  }
+  .clue-copy {
+    padding: 34px 26px 44px;
+  }
+  .section {
+    padding: 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    transition: none;
+  }
+  .arrow {
+    animation: none;
+  }
+}
