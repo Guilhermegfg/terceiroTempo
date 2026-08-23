@@ -1,64 +1,139 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-K3R88K0JT2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-K3R88K0JT2');
-</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0b0b0b" />
-  <meta name="description" content="Terceiro Tempo — um novo ponto de encontro está chegando em Vila Propício." />
-  <title>Terceiro Tempo | Em breve</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Terceiro Tempo — esporte, lazer e resenha em Vila Propício. Acompanhe as novidades até a inauguração." />
+  <title>Terceiro Tempo | Novidades</title>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3R88K0JT2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K3R88K0JT2');
+  </script>
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main>
-    <section class="hero section" id="inicio" aria-label="Apresentação">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="overlay"></div>
-      <div class="hero-content reveal">
-        <p class="eyebrow">Vila Propício • GO</p>
-        <h1>Vila Propício<br><span>nunca viu</span><br>nada igual.</h1>
-        <p class="sub">Em breve.</p>
-        <a class="cta" href="https://instagram.com/terceirotempo.vp" target="_blank" rel="noopener noreferrer">Siga e acompanhe o que está chegando</a>
-      </div>
-      <button class="scroll-hint" data-scroll="#pista" aria-label="Ver próxima seção">
-        <span>desça</span><span class="arrow">↓</span>
-      </button>
-    </section>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Terceiro Tempo">
+      <span class="brand-mark">TT</span>
+      <span>
+        <strong>TERCEIRO TEMPO</strong>
+        <small>ESPORTE • PRAIA • RESENHA</small>
+      </span>
+    </a>
 
-    <section class="section clue" id="pista">
-      <div class="clue-card reveal">
-        <div class="clue-image wood"></div>
-        <div class="clue-copy">
-          <p class="eyebrow">Pista #01</p>
-          <h2>Um novo ponto de encontro está tomando forma.</h2>
-          <p>Madeira, luz, areia e bons momentos. O resto você vai descobrir aos poucos.</p>
+    <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false">☰</button>
+
+    <nav class="nav">
+      <a href="#novidades">Novidades</a>
+      <a href="#experiencias">O que vai ter</a>
+      <a href="#participe">Participe</a>
+      <a class="nav-cta" href="https://instagram.com/terceirotempo.vp" target="_blank" rel="noopener noreferrer">
+        Instagram
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-glow"></div>
+      <div class="hero-content reveal">
+        <span class="eyebrow">VILA PROPÍCIO • GO</span>
+        <h1>Um novo <em>ponto de encontro</em> está tomando forma.</h1>
+        <p>
+          Esporte, lazer, boa comida, futebol ao vivo e aquela resenha que faz a gente ficar mais um pouco.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#novidades">Ver novidades</a>
+          <a class="btn ghost" href="#participe">Quero participar</a>
+        </div>
+
+        <div class="status">
+          <span class="status-dot"></span>
+          <span>Em construção • novidades atualizadas por aqui</span>
         </div>
       </div>
+
+      <div class="hero-card reveal delay">
+        <span>EM BREVE</span>
+        <strong>Terceiro Tempo</strong>
+        <p>O jogo termina.<br><b>A resenha continua.</b></p>
+      </div>
     </section>
 
-    <section class="section finale" id="final">
-      <div class="finale-inner reveal">
-        <img src="assets/logo-icon.png" alt="Símbolo Terceiro Tempo" class="logo" />
-        <p class="eyebrow">Terceiro Tempo</p>
-        <h2>Uma nova história começa aqui.</h2>
-        <p class="final-text">Acompanhe a construção, as pistas e cada novidade até a inauguração.</p>
-        <a class="cta cta-solid" href="https://instagram.com/terceirotempo.vp" target="_blank" rel="noopener noreferrer">Acompanhar no Instagram</a>
+    <section class="section" id="novidades">
+      <div class="section-heading reveal">
+        <div>
+          <span class="eyebrow">DIÁRIO DA OBRA</span>
+          <h2>Últimas novidades</h2>
+        </div>
+        
       </div>
-      <footer>Terceiro Tempo • Vila Propício — GO</footer>
+
+      <div class="news-grid" id="newsGrid"></div>
+    </section>
+
+    <section class="section experiences" id="experiencias">
+      <div class="section-heading reveal">
+        <div>
+          <span class="eyebrow">TUDO EM UM SÓ LUGAR</span>
+          <h2>O que você vai encontrar</h2>
+        </div>
+        <p>Mais do que uma quadra: um lugar pensado para jogar, assistir, comer, encontrar e ficar.</p>
+      </div>
+
+      <div class="experience-grid">
+        <article class="feature reveal"><span>🏐</span><h3>Quadra de areia</h3><p>Futevôlei, vôlei e beach tennis.</p></article>
+        <article class="feature reveal"><span>🍢</span><h3>Bar & espetaria</h3><p>Bebidas geladas, espetos e porções.</p></article>
+        <article class="feature reveal"><span>🎱</span><h3>Sinuca</h3><p>Desafios e resenha entre amigos.</p></article>
+        <article class="feature reveal"><span>🎮</span><h3>Games</h3><p>Videogame para completar a diversão.</p></article>
+        <article class="feature reveal"><span>⚽</span><h3>Jogos ao vivo</h3><p>Principais partidas e competições.</p></article>
+        <article class="feature reveal"><span>👨‍👩‍👧</span><h3>Espaço família</h3><p>Um ambiente para diferentes públicos.</p></article>
+        <article class="feature reveal"><span>🏆</span><h3>Eventos</h3><p>Campeonatos, premiações e encontros.</p></article>
+      </div>
+    </section>
+
+    <section class="section participation" id="participe">
+      <div class="participation-card reveal">
+        <div>
+          <span class="eyebrow">VOCÊ TAMBÉM FAZ PARTE</span>
+          <h2>Ajude a construir o Terceiro Tempo.</h2>
+          <p>
+            As próximas decisões vão aparecer nas redes: cardápio, bebidas, campeonatos, premiações e detalhes da inauguração.
+          </p>
+        </div>
+        <a class="btn primary" href="https://instagram.com/terceirotempo.vp" target="_blank" rel="noopener noreferrer">
+          Seguir @terceirotempo.vp
+        </a>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Destaques">
+      <div class="ticker-track">
+        <span>ESPORTE</span><b>•</b><span>PRAIA</span><b>•</b><span>RESENHA</span><b>•</b>
+        <span>ESPORTE</span><b>•</b><span>PRAIA</span><b>•</b><span>RESENHA</span><b>•</b>
+      </div>
     </section>
   </main>
-  
-  <script src="script.js" ></script>
+
+  <footer>
+    <div>
+      <strong>TERCEIRO TEMPO</strong>
+      <span>Vila Propício • GO</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://terceirotempovp.com.br">terceirotempovp.com.br</a>
+      <a href="https://instagram.com/terceirotempo.vp" target="_blank" rel="noopener noreferrer">@terceirotempo.vp</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
