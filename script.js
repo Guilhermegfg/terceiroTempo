@@ -34,28 +34,57 @@ novidades.forEach(item => {
   newsGrid.appendChild(article);
 });
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-},{threshold:.12});
+const revealElements = document.querySelectorAll('.reveal');
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealElements.forEach(element => observer.observe(element));
+} else {
+  revealElements.forEach(element => element.classList.add('visible'));
+}
 
 const menuBtn = document.querySelector('.menu-btn');
 const nav = document.querySelector('.nav');
+const mobileBreakpoint = window.matchMedia('(max-width: 900px)');
+
+function closeMenu({ restoreFocus = false } = {}) {
+  nav.classList.remove('open');
+  menuBtn.setAttribute('aria-expanded', 'false');
+  menuBtn.setAttribute('aria-label', 'Abrir menu');
+  menuBtn.textContent = '☰';
+
+  if (restoreFocus) {
+    menuBtn.focus();
+  }
+}
 
 menuBtn.addEventListener('click', () => {
   const open = nav.classList.toggle('open');
   menuBtn.setAttribute('aria-expanded', String(open));
+  menuBtn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
   menuBtn.textContent = open ? '✕' : '☰';
 });
 
-nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  nav.classList.remove('open');
-  menuBtn.setAttribute('aria-expanded', 'false');
-  menuBtn.textContent = '☰';
-}));
+nav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => closeMenu());
+});
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && nav.classList.contains('open')) {
+    closeMenu({ restoreFocus: true });
+  }
+});
+
+mobileBreakpoint.addEventListener?.('change', event => {
+  if (!event.matches) {
+    closeMenu();
+  }
+});
